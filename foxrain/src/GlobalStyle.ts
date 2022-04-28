@@ -1,7 +1,10 @@
 import { css } from '@emotion/react';
 
 export const color = {
-  main: '',
+  main: '#6085C8',
+  border: '#C7C7C7',
+  inputBc: '#FBFBFB',
+  placeholder: '#7E7E7E',
 };
 
 const global = css`
