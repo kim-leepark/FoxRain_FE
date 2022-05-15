@@ -14,7 +14,7 @@ const global = css`
     list-style: none;
     box-sizing: border-box;
     outline: none;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Roboto', sans-serif;
     user-select: none;
   }
   a {
