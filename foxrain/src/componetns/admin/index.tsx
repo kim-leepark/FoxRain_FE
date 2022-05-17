@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as S from './style';
-import Header from '../header/AdminHeader';
-import Post from './post';
+import Header from '../Header/Admin';
+import Post from '../post';
 import { banner } from '../../assets/admin';
 
 const Admin = () => {

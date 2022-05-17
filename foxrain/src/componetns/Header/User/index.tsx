@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from './style';
+import * as S from '../Admin/style';
 import Profile from '../../../assets/Header/Profile.svg';
 
 const Header = () => {
