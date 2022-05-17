@@ -47,7 +47,19 @@ export const PostText = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 5px;
   @media only screen and (max-width: 1440px) {
     font-size: 15px;
   }
+`;
+
+export const ReportIcon = styled.img`
+  width: 18px;
+  height: 22px;
+  float: right;
+`;
+export const ReportCtn = styled.p`
+  float: right;
+  font-size: 15px;
+  margin-left: 5px;
 `;

@@ -5,7 +5,7 @@ import PostContent from './PostContent';
 const Post = () => {
   return (
     <S.Post>
-      <PostContent />
+      <PostContent reportCtn={1} />
       <PostContent />
       <PostContent />
       <PostContent />
