@@ -5,13 +5,7 @@ import PostContent from './PostContent';
 const Post = () => {
   return (
     <S.Post>
-      <PostContent reportCtn={1} />
-      <PostContent />
-      <PostContent />
-      <PostContent />
-      <PostContent />
-      <PostContent />
-      <PostContent />
+      <PostContent title={'제목'} content={'내용'} reportCtn={1} />
     </S.Post>
   );
 };
