@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import * as S from './style';
-import { reportIcon } from '../../../assets/admin';
+import { reportIcon } from '../../assets/admin';
 
 interface Props {
   title: string;
