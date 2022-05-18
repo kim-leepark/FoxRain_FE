@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header/User';
 import * as S from './style';
 import Back from '../../assets/Main/Back.svg';
+import Post from './Post';
 
 const Main = () => {
   return (
@@ -9,7 +10,7 @@ const Main = () => {
       <Header />
       <S.Container>
         <S.Banner src={Back} />
-        {/* post 넣는 곳*/}
+        <Post />
       </S.Container>
     </>
   );
