@@ -14,10 +14,10 @@ const PostContent: FC<Props> = props => {
   const report = useMemo(() => {
     if (reportCtn)
       return (
-        <>
+        <S.ReportLine>
           <S.ReportCtn>{reportCtn}개</S.ReportCtn>
           <S.ReportIcon src={reportIcon} />
-        </>
+        </S.ReportLine>
       );
   }, [reportCtn]);
 
