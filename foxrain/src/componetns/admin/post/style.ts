@@ -23,6 +23,7 @@ export const PostContent = styled.div`
   cursor: pointer;
   padding: 20px;
   box-shadow: 3.5px 3.5px 3.5px rgba(0, 0, 0, 0.1);
+  position: relative;
   @media only screen and (max-width: 1440px) {
     width: 310px;
   }
@@ -51,6 +52,12 @@ export const PostText = styled.p`
   @media only screen and (max-width: 1440px) {
     font-size: 15px;
   }
+`;
+
+export const ReportLine = styled.div`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 `;
 
 export const ReportIcon = styled.img`
