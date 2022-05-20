@@ -9,7 +9,9 @@ const Main = () => {
     <>
       <S.Container>
         <Header />
-        <S.Banner src={Back} />
+        <S.Banner src={Back}></S.Banner>
+        <S.Font>삶은 계란이다.</S.Font>
+        <S.Name>기몌준</S.Name>
         <Post />
       </S.Container>
     </>
