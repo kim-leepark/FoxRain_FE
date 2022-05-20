@@ -1,39 +1,28 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
-  height: 75px;
+export const AdminHeader = styled.div`
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
+  height: 75px;
+  @media only screen and (max-width: 1440px) {
+    height: 55px;
+  }
+  > div {
+    width: 55.5%;
+    min-width: 800px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > p:last-child {
+      cursor: pointer;
+    }
+  }
 `;
 
-export const Content = styled.div`
-  margin: 0 auto;
-  width: 1280px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-export const Logo = styled.img``;
-
-export const NavBox = styled.div`
-  width: 345px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-export const Font = styled.div`
-  font-family: 'Roboto';
-  font-size: 20px;
-  color: #ffffff;
-  cursor: pointer;
-`;
-
-export const Profile = styled.img`
-  cursor: pointer;
+export const Text = styled.p`
+  font-size: 1.5rem;
+  @media only screen and (max-width: 1440px) {
+    font-size: 1.125rem;
+  }
 `;
