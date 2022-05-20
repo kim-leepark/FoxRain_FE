@@ -21,8 +21,8 @@ export const AdminHeader = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: 1.5rem;
+  font-size: 20px;
   @media only screen and (max-width: 1440px) {
-    font-size: 1.125rem;
+    font-size: 18px;
   }
 `;
