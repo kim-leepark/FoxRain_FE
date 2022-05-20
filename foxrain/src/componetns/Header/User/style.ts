@@ -30,7 +30,7 @@ export const NavBox = styled.div`
 export const Font = styled.div`
   font-family: 'Roboto';
   font-size: 20px;
-  color: #ffffff;
+  color: #000000;
   cursor: pointer;
 `;
 
