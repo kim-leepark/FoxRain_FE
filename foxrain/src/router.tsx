@@ -1,12 +1,13 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import { Admin } from './componetns';
+import { Main, Admin } from './componetns';
 
 const Router = (): JSX.Element => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/admin' element={<Admin />}></Route>
+        <Route path='/' element={<Main />} />
+        <Route path='/admin' element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );
