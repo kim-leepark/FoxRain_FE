@@ -7,8 +7,8 @@ import Post from './Post';
 const Main = () => {
   return (
     <>
-      <Header />
       <S.Container>
+        <Header />
         <S.Banner src={Back} />
         <Post />
       </S.Container>
