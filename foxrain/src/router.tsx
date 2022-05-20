@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import { Main, Admin } from './componetns';
+import { Main, Admin, Mypage } from './componetns';
 
 const Router = (): JSX.Element => {
   return (
@@ -8,6 +8,7 @@ const Router = (): JSX.Element => {
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/mypage' element={<Mypage />} />
       </Routes>
     </BrowserRouter>
   );

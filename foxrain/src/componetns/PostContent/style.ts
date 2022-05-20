@@ -1,4 +1,6 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { color } from '../../GlobalStyle';
 
 export const Post = styled.div`
   width: 1280px;
@@ -16,10 +18,12 @@ export const Post = styled.div`
   }
 `;
 
-export const PostContent = styled.div`
+export const PostContent = styled.div<{ border: boolean }>`
   width: 413px;
   height: 230px;
-  border: 0.75px solid #000000;
+  ${({ border }) => css`
+    border: 0.75px solid ${border ? '#000000' : color.main};
+  `}
   cursor: pointer;
   padding: 20px;
   box-shadow: 3.5px 3.5px 3.5px rgba(0, 0, 0, 0.1);
