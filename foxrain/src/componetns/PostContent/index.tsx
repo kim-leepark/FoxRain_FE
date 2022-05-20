@@ -5,11 +5,12 @@ import { reportIcon } from '../../assets/admin';
 interface Props {
   title: string;
   content: string;
+  isAdmin: boolean;
   reportCtn?: number;
 }
 
 const PostContent: FC<Props> = props => {
-  const { title, content, reportCtn } = props;
+  const { title, content, reportCtn, isAdmin } = props;
 
   const report = useMemo(() => {
     if (reportCtn)
@@ -22,7 +23,7 @@ const PostContent: FC<Props> = props => {
   }, [reportCtn]);
 
   return (
-    <S.PostContent>
+    <S.PostContent border={isAdmin}>
       <S.PostTitle>{title}</S.PostTitle>
       <S.PostText>{content}</S.PostText>
       {report}
