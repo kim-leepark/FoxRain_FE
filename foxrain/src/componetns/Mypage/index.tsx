@@ -7,7 +7,7 @@ import Post from './post';
 const Mypage = () => {
   return (
     <S.Mypage>
-      <Header />
+      <Header isMain={false} />
       <S.BannerContent>
         <img src={banner} alt='banner' />
         <p>
