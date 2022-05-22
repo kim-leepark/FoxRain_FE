@@ -1,9 +1,13 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
-export const Container = styled.div`
+export const Container = styled.div<{ position: boolean }>`
   height: 75px;
   width: 100%;
-  position: absolute;
+  ${({ position }) => css`
+    position: ${position ? 'absolute' : 'none'};
+    color: ${position ? '#ffffff' : '#000000'};
+  `}
   display: fixed;
   z-index: 10;
   @media only screen and (max-width: 1440px) {
@@ -37,7 +41,6 @@ export const Img = styled.img`
 export const Font = styled.div`
   font-family: 'Roboto';
   font-size: 20px;
-  color: #ffffff;
   cursor: pointer;
 `;
 
