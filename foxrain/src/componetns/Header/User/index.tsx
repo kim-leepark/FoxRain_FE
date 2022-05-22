@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import Profile from '../../../assets/Header/Profile.svg';
 import { useNavigate } from 'react-router';
 
-const Header = () => {
+interface Props {
+  isMain: boolean;
+}
+
+const Header: FC<Props> = props => {
   const navigate = useNavigate();
 
   return (
-    <S.Container>
+    <S.Container position={props.isMain}>
       <S.Content>
         <div onClick={() => navigate(`/`)}>로고 위치</div>
         <S.NavBox>
