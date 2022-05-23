@@ -3,6 +3,9 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   height: 75px;
   width: 100%;
+  position: absolute;
+  display: fixed;
+  z-index: 10;
   @media only screen and (max-width: 1440px) {
     height: 55px;
   }
@@ -10,15 +13,15 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   margin: 0 auto;
-  width: 1280px;
   height: 100%;
-  min-width: 800px;
+  min-width: 1280px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media only screen and (max-width: 1440px) {
+    min-width: 880px;
+  }
 `;
-
-export const Logo = styled.img``;
 
 export const NavBox = styled.div`
   width: 345px;
@@ -27,10 +30,14 @@ export const NavBox = styled.div`
   justify-content: space-between;
 `;
 
+export const Img = styled.img`
+  cursor: pointer;
+`;
+
 export const Font = styled.div`
   font-family: 'Roboto';
   font-size: 20px;
-  color: #000000;
+  color: #ffffff;
   cursor: pointer;
 `;
 
