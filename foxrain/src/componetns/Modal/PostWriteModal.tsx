@@ -10,7 +10,7 @@ const PostWriteModal = () => {
         모두에게 공유해주세요.
       </S.ModalText>
       <S.Input width={650} placeholder={'제목을 입력해 주세요.'} />
-      <S.TextArea placeholder={'내용을 입력해 주세요.'} />
+      <S.TextArea placeholder={'내용을 입력해 주세요.'} height={235} />
       <S.Button width={650}>공유하기</S.Button>
     </S.Modal>
   );

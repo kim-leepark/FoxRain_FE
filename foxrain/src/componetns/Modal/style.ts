@@ -52,9 +52,11 @@ export const Input = styled.input<{ width: number }>`
   }
 `;
 
-export const TextArea = styled.textarea`
+export const TextArea = styled.textarea<{ height: number }>`
   width: 650px;
-  height: 235px;
+  ${({ height }) => css`
+    height: ${height}px;
+  `}
   font-size: 18px;
   border: 1px solid ${color.border};
   border-radius: 10px;
