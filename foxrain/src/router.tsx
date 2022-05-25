@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { Main, Admin, Mypage } from './componetns';
+import Details from './componetns/Details';
 
 const Router = (): JSX.Element => {
   return (
@@ -9,6 +10,7 @@ const Router = (): JSX.Element => {
         <Route path='/' element={<Main />} />
         <Route path='/admin' element={<Admin />} />
         <Route path='/mypage' element={<Mypage />} />
+        <Route path='/details/' element={<Details />} />
       </Routes>
     </BrowserRouter>
   );

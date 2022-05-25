@@ -7,7 +7,7 @@ import Post from './Post';
 const Main = () => {
   return (
     <>
-      <Header />
+      <Header isMain={true} />
       <S.Container>
         <S.Banner src={Back}></S.Banner>
         <S.Font>삶은 계란이다.</S.Font>
