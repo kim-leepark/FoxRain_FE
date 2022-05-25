@@ -83,3 +83,22 @@ export const Button = styled.button<{ width: number }>`
   font-weight: bold;
   cursor: pointer;
 `;
+
+export const ReportList = styled.div`
+  width: 650px;
+  height: 350px;
+  background-color: ${color.inputBc};
+  border: 1px solid ${color.border};
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 5px 20px;
+  overflow: auto;
+  > p {
+    font-size: 18px;
+    padding: 15px 0px;
+    border-bottom: 1px solid ${color.border};
+  }
+  > p:last-child {
+    border-bottom: none;
+  }
+`;
