@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import * as S from './style';
-import Profile from '../../../assets/Header/Profile.svg';
+import WProfile from '../../../assets/Header/WProfile.svg';
+import BProfile from '../../../assets/Header/BProfile.svg';
 import { useNavigate } from 'react-router';
 
 interface Props {
@@ -17,7 +18,7 @@ const Header: FC<Props> = props => {
         <S.NavBox>
           <S.Font>글귀 작성하기</S.Font>
           <S.Font>게시글 작성하기</S.Font>
-          <S.Img src={Profile} onClick={() => navigate(`/mypage`)} />
+          <S.Img src={props.isMain ? WProfile : BProfile} onClick={() => navigate(`/mypage`)} />
         </S.NavBox>
       </S.Content>
     </S.Container>
