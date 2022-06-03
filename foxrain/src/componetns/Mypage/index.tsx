@@ -7,6 +7,7 @@ import { getRequestWithAccessToken } from '../../api';
 
 const Mypage = () => {
   const token = localStorage.getItem('accessToken');
+  const userId = localStorage.getItem('userId');
   const [feed, setFeed] = useState<
     Array<{
       postId: number;
@@ -19,7 +20,7 @@ const Mypage = () => {
   useEffect(() => {
     const request = getRequestWithAccessToken(token ? token : '', 2);
     request
-      .get('/user')
+      .get(`/user/${userId}?page=1&size=100`)
       .then(response => {
         setFeed(response.data);
         setUserName(response.data[0].name);
