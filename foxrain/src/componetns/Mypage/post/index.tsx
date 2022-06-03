@@ -17,6 +17,13 @@ const Post: FC<Props> = props => {
       return content.map(data => {
         <PostContent title={data.title} content={data.content} key={data.postId} isAdmin={false} />;
       });
+    else
+      return (
+        <>
+          <div />
+          <S.NoContent>작성하신 게시물이 없습니다.</S.NoContent>
+        </>
+      );
   }, [content]);
 
   return <S.Post>{postContent}</S.Post>;
