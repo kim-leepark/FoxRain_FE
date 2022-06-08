@@ -1,9 +1,10 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import { getRequest } from '../../api';
 import * as S from './style';
 
 interface Props {
-  showModal : boolean
+  modal : boolean;
+  showModal : Dispatch<SetStateAction<boolean>>;
 }
 
 const SignupModal : FC<Props> = props => {
@@ -29,9 +30,9 @@ const SignupModal : FC<Props> = props => {
 
   return (
    <>
-   {props.showModal ? 
-   <S.ModalBG>
- <S.Modal width={600} height={430}>
+   {props.modal ? 
+   <S.ModalBG onClick={() => props.showModal(false)}>
+    <S.Modal width={600} height={430}>
      <S.ModalText>
        <span>회원가입</span>을 해주세요!
      </S.ModalText>
