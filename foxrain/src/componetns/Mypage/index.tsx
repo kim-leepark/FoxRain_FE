@@ -20,7 +20,7 @@ const Mypage = () => {
   useEffect(() => {
     const request = getRequestWithAccessToken(token ? token : '', 2);
     request
-      .get(`/user/${userId}?page=0&size=100`)
+      .get(`/user/${userId}?page=1&size=100`)
       .then(response => {
         setFeed(response.data);
         setUserName(response.data[0].name);
