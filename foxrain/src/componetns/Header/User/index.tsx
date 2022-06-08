@@ -30,9 +30,8 @@ const Header: FC<Props> = props => {
       </S.NavBox>
     </S.Content>
   </S.Container>
-  <UserAuthModal showModal={showModal}/>
-    </>
-
+  <UserAuthModal modal={showModal} showModal={setShowModal}/>
+  </>
   );
 };
 
