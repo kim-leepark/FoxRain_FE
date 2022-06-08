@@ -28,7 +28,7 @@ export const Content = styled.div`
 `;
 
 export const NavBox = styled.div`
-  width: 345px;
+  width: 385px;
   display: flex;
   align-items: center;
   justify-content: space-between;
