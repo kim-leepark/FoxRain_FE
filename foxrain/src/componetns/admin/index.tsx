@@ -5,9 +5,31 @@ import Post from './post';
 import { banner } from '../../assets/admin';
 import { getRequestWithAccessToken } from '../../api';
 
+type phraseType = {
+  id: number;
+  content: string;
+  man: string;
+  reportNum: number;
+};
+
+type postType = {
+  id: number;
+  title: string;
+  content: string;
+  reportNum: number;
+};
+
+type commentType = {
+  commentId: number;
+  content: string;
+  reportedNum: number;
+};
+
 const Admin = () => {
   const token = localStorage.getItem('accessToken');
-  const [feed, setFeed] = useState([]);
+  const [phrase, setPhrase] = useState<Array<phraseType>>([]);
+  const [post, setPost] = useState<Array<postType>>([]);
+  const [comment, setComment] = useState<Array<commentType>>([]);
   const [isClick, setIsClick] = useState<{ text: boolean; post: boolean; comment: boolean }>({
     text: true,
     post: false,
@@ -20,7 +42,9 @@ const Admin = () => {
       request
         .get('/report/phrases?page=0&size=100')
         .then(response => {
-          setFeed(response.data);
+          setPhrase(response.data);
+          setPost([]);
+          setComment([]);
         })
         .catch(error => {
           console.log(error);
@@ -30,7 +54,9 @@ const Admin = () => {
       request
         .get('/report/posts?page=0&size=100')
         .then(response => {
-          setFeed(response.data);
+          setPost(response.data);
+          setPhrase([]);
+          setComment([]);
         })
         .catch(error => {
           console.log(error);
@@ -38,9 +64,11 @@ const Admin = () => {
     } else if (isClick.comment) {
       const request = getRequestWithAccessToken(token ? token : '', 2);
       request
-        .get('/report/comments?page=0&size=100')
+        .get('/report/comments?page=1&size=100')
         .then(response => {
-          setFeed(response.data);
+          setComment(response.data);
+          setPhrase([]);
+          setPost([]);
         })
         .catch(error => {
           console.log(error);
@@ -86,7 +114,7 @@ const Admin = () => {
           );
         })}
       </S.SelectBox>
-      <Post />
+      <Post phrase={phrase} post={post} comment={comment} />
     </S.Admin>
   );
 };

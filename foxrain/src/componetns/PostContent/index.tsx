@@ -6,21 +6,21 @@ interface Props {
   title: string;
   content: string;
   isAdmin: boolean;
-  reportCtn?: number;
+  reportCnt?: number;
 }
 
 const PostContent: FC<Props> = props => {
-  const { title, content, reportCtn, isAdmin } = props;
+  const { title, content, reportCnt, isAdmin } = props;
 
   const report = useMemo(() => {
-    if (reportCtn)
+    if (reportCnt)
       return (
         <S.ReportLine>
-          <S.ReportCtn>{reportCtn}개</S.ReportCtn>
+          <S.ReportCtn>{reportCnt}개</S.ReportCtn>
           <S.ReportIcon src={reportIcon} />
         </S.ReportLine>
       );
-  }, [reportCtn]);
+  }, [reportCnt]);
 
   return (
     <S.PostContent border={isAdmin}>
