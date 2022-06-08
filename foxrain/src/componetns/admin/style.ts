@@ -63,3 +63,7 @@ export const Post = styled.div`
     margin-top: 29px;
   }
 `;
+
+export const NoContent = styled.p`
+  font-size: 20px;
+`;
