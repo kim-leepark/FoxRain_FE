@@ -2,10 +2,15 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { color } from '../../GlobalStyle';
 
+
 export const ModalBG = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: ${color.main};
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  display: fixed;
+  z-index: 10;
+  overflow: hidden;
 `;
 
 export const Modal = styled.div<{
@@ -16,12 +21,18 @@ export const Modal = styled.div<{
     width: ${width}px;
     height: ${height}px;
   `}
+  overflow: hidden;
   background-color: #ffffff;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
 `;
 
 export const ModalText = styled.p`
@@ -102,3 +113,10 @@ export const ReportList = styled.div`
     border-bottom: none;
   }
 `;
+
+export const SignText = styled.span`
+font-size: 18px;
+color: rgba(0, 0, 0, 0.5);
+margin-top: 12px;
+cursor: pointer;
+`
