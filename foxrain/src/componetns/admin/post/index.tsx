@@ -32,36 +32,41 @@ const Post: FC<Props> = props => {
   const { phrase, post, comment } = props;
 
   const postContent = useMemo(() => {
-    console.log(1, phrase.length, 2, post.length, 3, comment.length);
-    if (phrase.length > 1) {
+    if (phrase.length > 0) {
       return phrase.map(data => {
-        <PostContent
-          title={data.man}
-          content={data.content}
-          key={data.id}
-          isAdmin={true}
-          reportCnt={data.reportNum}
-        />;
+        return (
+          <PostContent
+            title={data.man}
+            content={data.content}
+            key={data.id}
+            isAdmin={true}
+            reportCnt={data.reportNum}
+          />
+        );
       });
-    } else if (post.length > 1) {
+    } else if (post.length > 0) {
       return post.map(data => {
-        <PostContent
-          title={data.title}
-          content={data.content}
-          key={data.id}
-          reportCnt={data.reportNum}
-          isAdmin={true}
-        />;
+        return (
+          <PostContent
+            title={data.title}
+            content={data.content}
+            key={data.id}
+            reportCnt={data.reportNum}
+            isAdmin={true}
+          />
+        );
       });
-    } else if (comment.length > 1) {
+    } else if (comment.length > 0) {
       return comment.map(data => {
-        <PostContent
-          title={''}
-          content={data.content}
-          key={data.commentId}
-          reportCnt={data.reportedNum}
-          isAdmin={true}
-        />;
+        return (
+          <PostContent
+            title={''}
+            content={data.content}
+            key={data.commentId}
+            reportCnt={data.reportedNum}
+            isAdmin={true}
+          />
+        );
       });
     } else {
       return (
