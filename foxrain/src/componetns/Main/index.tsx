@@ -5,7 +5,7 @@ import Banner1 from '../../assets/Main/Banner1.svg';
 import Banner2 from '../../assets/Main/Banner2.svg';
 import Banner3 from '../../assets/Main/Banner3.svg';
 import Post from './Post';
-import { getRequestWithAccessToken } from '../../api';
+import { getRequest } from '../../api';
 
 
 const Main = () => {
@@ -19,7 +19,7 @@ const Main = () => {
 
 
   useEffect(() => {
-    const request = getRequestWithAccessToken(token ? token : '', 1)
+    const request = getRequest(1);
     request.get(`/phrase`).then(response => {
       setId(response.data.id);
       setContent(response.data.content)
