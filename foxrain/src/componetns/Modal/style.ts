@@ -30,6 +30,7 @@ export const Modal = styled.div<{
   align-items: center;
   position: absolute;
   top: 50%;
+  z-index: 20;
   left: 50%;
   transform: translate(-50%, -50%);
   

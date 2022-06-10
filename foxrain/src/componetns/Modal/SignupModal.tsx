@@ -31,7 +31,8 @@ const SignupModal : FC<Props> = props => {
   return (
    <>
    {props.modal ? 
-   <S.ModalBG onClick={() => props.showModal(false)}>
+   <>
+    <S.ModalBG onClick={() => props.showModal(false)}>  </S.ModalBG>
     <S.Modal width={600} height={430}>
      <S.ModalText>
        <span>회원가입</span>을 해주세요!
@@ -41,7 +42,7 @@ const SignupModal : FC<Props> = props => {
      <S.Input width={440} placeholder={'이름을 입력해 주세요.'} onChange={e=> setUserName(e.target.value)} />
      <S.Button onClick={ClickSign} width={440}>회원가입</S.Button>
    </S.Modal>
-   </S.ModalBG>
+   </>
      : null
    }
    </>

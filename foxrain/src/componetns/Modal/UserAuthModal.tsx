@@ -38,8 +38,9 @@ const UserAuthModal: FC<Props> = props => {
   return (
    <>
    {props.modal ?
-   <S.ModalBG onClick={() => props.showModal(false)}>
-   <S.Modal width={600} height={360}>
+   <>
+    <S.ModalBG onClick={() => props.showModal(false)}></S.ModalBG>
+    <S.Modal width={600} height={360}>
       <S.ModalText>
         <span>로그인</span>을 해주세요!
       </S.ModalText>
@@ -49,7 +50,7 @@ const UserAuthModal: FC<Props> = props => {
       <S.Button width={440} onClick={LoginClick}>로그인</S.Button>
       <S.SignText onClick={SignupClick}>회원이 아닌가요?</S.SignText>
     </S.Modal>
-   </S.ModalBG>
+   </>
     : null}
     <SignupModal modal={signModal} showModal={setSignModal} />
    </>
