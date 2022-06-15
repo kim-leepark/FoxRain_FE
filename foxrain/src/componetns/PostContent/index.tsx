@@ -6,11 +6,13 @@ interface Props {
   title: string;
   content: string;
   isAdmin: boolean;
+  id?: number;
   reportCnt?: number;
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 const PostContent: FC<Props> = props => {
-  const { title, content, reportCnt, isAdmin } = props;
+  const { title, content, reportCnt, isAdmin, onClick, id } = props;
 
   const report = useMemo(() => {
     if (reportCnt)
@@ -23,7 +25,7 @@ const PostContent: FC<Props> = props => {
   }, [reportCnt]);
 
   return (
-    <S.PostContent border={isAdmin}>
+    <S.PostContent border={isAdmin} onClick={onClick} id={String(id)}>
       <S.PostTitle>{title}</S.PostTitle>
       <S.PostText>{content}</S.PostText>
       {report}

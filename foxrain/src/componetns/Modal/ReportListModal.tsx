@@ -1,28 +1,75 @@
-import React from 'react';
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
+import { getRequestWithAccessToken } from '../../api';
 import * as S from './style';
 
-const ReportListModal = () => {
+interface Props {
+  id: number;
+  type: string;
+  showModal: Dispatch<SetStateAction<boolean>>;
+}
+
+type content = {
+  id: number;
+  content: string;
+};
+
+type comment = {
+  commentId: number;
+  content: string;
+};
+
+const ReportListModal: FC<Props> = props => {
+  const { id, type, showModal } = props;
+  const [content, setContent] = useState<Array<content>>();
+  const [comment, setComment] = useState<Array<comment>>();
+  const token = localStorage.getItem('accessToken');
+
+  useEffect(() => {
+    if (type === 'comment') {
+      const request = getRequestWithAccessToken(token ? token : '', 2);
+      request
+        .get(`comment/${id}/report/reasons`)
+        .then(response => {
+          setComment(response.data);
+        })
+        .catch(error => {
+          console.log('comment error: ' + error);
+        });
+    } else {
+      const request = getRequestWithAccessToken(token ? token : '', 1);
+      request
+        .get(`${type}/${id}/report/reasons`)
+        .then(response => {
+          setContent(response.data);
+        })
+        .catch(error => {
+          console.log('post or phrase error: ' + error);
+        });
+    }
+  }, [id, token]);
+
   return (
-    <div>
+    <>
+      <S.ModalBG onClick={() => showModal(false)}></S.ModalBG>
       <S.Modal width={800} height={600}>
         <S.ModalText>
           <span>신고 사유</span> 목록입니다.
         </S.ModalText>
         <S.ReportList>
-          <p>글귀가 아픈 제 마음을 더 후벼파서 그만 보고 싶습니다.</p>
-          <p>글귀가 아픈 제 마음을 더 후벼파서 그만 보고 싶습니다.</p>
-          <p>
-            글귀가 아픈 제 마음을 더 후벼파서 그만 보고 싶습니다. 글귀가 아픈 제 마음을 더 후벼파서
-            그만 보고 싶습니다.
-          </p>
-          <p>
-            글귀가 아픈 제 마음을 더 후벼파서 그만 보고 싶습니다. 글귀가 아픈 제 마음을 더 후벼파서
-            그만 보고 싶습니다.
-          </p>
+          {content &&
+            type !== 'comment' &&
+            content.map(data => {
+              return <p key={data.id}>{data.content}</p>;
+            })}
+          {comment &&
+            type === 'comment' &&
+            comment.map(data => {
+              return <p key={data.commentId}>{data.content}</p>;
+            })}
         </S.ReportList>
         <S.Button width={650}>삭제하기</S.Button>
       </S.Modal>
-    </div>
+    </>
   );
 };
 
