@@ -1,22 +1,28 @@
-import React from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import PostContent from '../../PostContent';
 
-const Post = () => {
+interface Props {
+  feed : Array<{
+    postId: number,
+    title: string,
+    content : string
+  }>
+}
+
+const Post: FC<Props> = props => {
+
   return (
-    <S.Post>
-      <PostContent title={'혜준아악!'} content={'나 너무 졸려!'} isAdmin={false} />
-      <PostContent
-        title={'집!!!!!'}
-        content={'집을 너무나도 격렬하게 가고 싶다!'}
-        isAdmin={false}
-      />
-      <PostContent title={'제목'} content={'내용'} isAdmin={false} />
-      <PostContent title={'제목'} content={'내용'} isAdmin={false} />
-      <PostContent title={'제목'} content={'내용'} isAdmin={false} />
-      <PostContent title={'제목'} content={'내용'} isAdmin={false} />
-      <PostContent title={'제목'} content={'내용'} isAdmin={false} />
-    </S.Post>
+    <>
+     <S.Post>
+    {props.feed.map((item, index) => {
+      return (
+        <PostContent title={item.title} content={item.content} isAdmin={false} key={index}/>
+      )
+    })}
+    </ S.Post>
+    </>
+    
   );
 };
 
