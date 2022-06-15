@@ -4,6 +4,7 @@ import Header from '../Header/Admin';
 import Post from './post';
 import { banner } from '../../assets/admin';
 import { getRequestWithAccessToken } from '../../api';
+import { ReportListModal } from '../Modal';
 
 type phraseType = {
   id: number;
@@ -35,6 +36,8 @@ const Admin = () => {
     post: false,
     comment: false,
   });
+  const [listModal, setListModal] = useState<boolean>(false);
+  const [id, setId] = useState<number>(-1);
 
   useEffect(() => {
     if (isClick.text) {
@@ -96,6 +99,12 @@ const Admin = () => {
     }
   };
 
+  useEffect(() => {
+    if (id !== -1) {
+      setListModal(true);
+    }
+  }, [id]);
+
   return (
     <S.Admin>
       <Header />
@@ -114,7 +123,20 @@ const Admin = () => {
           );
         })}
       </S.SelectBox>
-      <Post phrase={phrase} post={post} comment={comment} />
+      <Post
+        phrase={phrase}
+        post={post}
+        comment={comment}
+        setListModal={setListModal}
+        setId={setId}
+      />
+      {listModal && (
+        <ReportListModal
+          id={id}
+          type={isClick.post ? 'post' : isClick.comment ? 'comment' : 'phrase'}
+          showModal={setListModal}
+        />
+      )}
     </S.Admin>
   );
 };
