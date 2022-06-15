@@ -31,11 +31,12 @@ interface Props {
 }
 
 const Post: FC<Props> = props => {
-  const { phrase, post, comment, setId } = props;
+  const { phrase, post, comment, setId, setListModal } = props;
 
   const contentClickHandler = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     let dataId: number = event.currentTarget.id ? Number(event.currentTarget.id) : -1;
     setId(dataId);
+    setListModal(true);
   };
 
   const postContent = useMemo(() => {

@@ -99,12 +99,6 @@ const Admin = () => {
     }
   };
 
-  useEffect(() => {
-    if (id !== -1) {
-      setListModal(true);
-    }
-  }, [id]);
-
   return (
     <S.Admin>
       <Header />
