@@ -16,7 +16,13 @@ const Main = () => {
   const [report, setReport] = useState(Boolean); // 신고했는지 안 했는지 구분하는
   const backgroundArr = [Banner1, Banner2, Banner3];
   const randomIndex = Math.floor(Math.random() * backgroundArr.length);
-
+  const [feed, setFeed] = useState<
+  Array<{
+    postId: number;
+    title: string;
+    content: string;
+  }>
+>();
 
   useEffect(() => {
     const request = getRequest(1);
@@ -26,7 +32,10 @@ const Main = () => {
       setMan(response.data.man)
       setReport(response.data.report)
     }).catch(error => {
-      console.log(error)
+      console.log(error);
+    })
+    request.get(`posts?page=0&size=100`).then(response => {
+      setFeed(response.data);
     })
   }, [])
 
@@ -37,7 +46,7 @@ const Main = () => {
         <S.Banner src={backgroundArr[randomIndex]}></S.Banner>
         <S.Font>{content}</S.Font>
         <S.Name>{man}</S.Name>
-        <Post />
+        <Post feed={feed ? feed : []}/>
       </S.Container>
     </>
   );
