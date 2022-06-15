@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { color } from '../../GlobalStyle';
 
-
 export const ModalBG = styled.div`
   width: 100%;
   height: 100vh;
@@ -33,7 +32,6 @@ export const Modal = styled.div<{
   z-index: 20;
   left: 50%;
   transform: translate(-50%, -50%);
-  
 `;
 
 export const ModalText = styled.p`
@@ -116,8 +114,11 @@ export const ReportList = styled.div`
 `;
 
 export const SignText = styled.span`
-font-size: 18px;
-color: rgba(0, 0, 0, 0.5);
-margin-top: 12px;
-cursor: pointer;
-`
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 12px;
+  cursor: pointer;
+  > span:nth-child(2) {
+    margin: 0px 5px;
+  }
+`;
