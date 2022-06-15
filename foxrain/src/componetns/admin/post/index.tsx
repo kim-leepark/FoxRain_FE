@@ -26,10 +26,17 @@ interface Props {
   phrase: Array<phraseType>;
   post: Array<postType>;
   comment: Array<commentType>;
+  setListModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setId: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Post: FC<Props> = props => {
-  const { phrase, post, comment } = props;
+  const { phrase, post, comment, setId } = props;
+
+  const contentClickHandler = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    let dataId: number = event.currentTarget.id ? Number(event.currentTarget.id) : -1;
+    setId(dataId);
+  };
 
   const postContent = useMemo(() => {
     if (phrase.length > 0) {
@@ -41,6 +48,8 @@ const Post: FC<Props> = props => {
             key={data.id}
             isAdmin={true}
             reportCnt={data.reportNum}
+            id={data.id}
+            onClick={contentClickHandler}
           />
         );
       });
@@ -53,6 +62,8 @@ const Post: FC<Props> = props => {
             key={data.id}
             reportCnt={data.reportNum}
             isAdmin={true}
+            id={data.id}
+            onClick={contentClickHandler}
           />
         );
       });
@@ -65,6 +76,8 @@ const Post: FC<Props> = props => {
             key={data.commentId}
             reportCnt={data.reportedNum}
             isAdmin={true}
+            id={data.commentId}
+            onClick={contentClickHandler}
           />
         );
       });
