@@ -4,6 +4,7 @@ import Header from '../Header/User';
 import { banner } from '../../assets/mypage';
 import Post from './post';
 import { getRequestWithAccessToken } from '../../api';
+import { PostWriteModal, TextWriteModal } from '../Modal';
 
 const Mypage = () => {
   const token = localStorage.getItem('accessToken');
@@ -16,14 +17,16 @@ const Mypage = () => {
     }>
   >();
   const [userName, setUserName] = useState<string>('');
+  const [uploadPost, setUploadPost] = useState<boolean>(false); // 게시글 작성 모달
+  const [uploadPhrase, setUploadPhrase] = useState<boolean>(false); // 글귀 작성 모달
 
   useEffect(() => {
     const request = getRequestWithAccessToken(token ? token : '', 2);
     request
       .get(`/user/${userId}?page=1&size=100`)
       .then(response => {
-        setFeed(response.data);
-        setUserName(response.data[0].name);
+        setFeed(response.data.data);
+        setUserName(response.data.data[0].name);
       })
       .catch(error => {
         console.log(error);
@@ -32,14 +35,16 @@ const Mypage = () => {
 
   return (
     <S.Mypage>
-      <Header isMain={false} />
+      <Header isMain={false} setUploadPost={setUploadPost} setUploadPhrase={setUploadPhrase} />
       <S.BannerContent>
         <img src={banner} alt='banner' />
         <p>
           {userName}님 <br /> 모두가 잠든 밤에 피는 꽃도 있습니다.
         </p>
       </S.BannerContent>
-      <Post content={feed ? feed : null} />
+      <Post content={feed ? feed : []} />
+      {uploadPost && <PostWriteModal showModal={setUploadPost} />}
+      {uploadPhrase && <TextWriteModal showModal={setUploadPhrase} />}
     </S.Mypage>
   );
 };
