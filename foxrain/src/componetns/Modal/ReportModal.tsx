@@ -42,7 +42,8 @@ const ReportModal: FC<Props> = props => {
           }
         })
         .catch(error => {
-          console.log('comment report error: ' + error);
+          console.log('post or phrase report error: ' + error);
+          alert('신고 실패하였습니다. 두 번 이상 신고할 수 없습니다.');
         });
     }
   };
@@ -61,7 +62,9 @@ const ReportModal: FC<Props> = props => {
           height={300}
           onChange={contentChangeHandler}
         />
-        <S.Button width={650}>신고하기</S.Button>
+        <S.Button width={650} onClick={reportBtnClickHandler}>
+          신고하기
+        </S.Button>
       </S.Modal>
     </>
   );
