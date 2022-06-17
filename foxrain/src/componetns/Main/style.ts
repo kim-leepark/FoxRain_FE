@@ -24,6 +24,7 @@ export const Font = styled.p`
   font-weight: 700;
   font-size: 50px;
   color: #ffffff;
+  cursor: pointer;
   @media only screen and (max-width: 1440px) {
     font-size: 26px;
     top: 17%;
@@ -36,6 +37,7 @@ export const Name = styled(Font)`
   transform: translate(600%, -50%);
   font-size: 30px;
   line-height: 35px;
+  cursor: pointer;
   @media only screen and (max-width: 1440px) {
     font-size: 20px;
     transform: translate(550%, 50%);
