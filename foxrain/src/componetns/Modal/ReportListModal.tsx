@@ -23,11 +23,12 @@ const ReportListModal: FC<Props> = props => {
   const [content, setContent] = useState<Array<content>>();
   const [comment, setComment] = useState<Array<comment>>();
   const token = localStorage.getItem('accessToken');
+  const oneRequest = getRequestWithAccessToken(token ? token : '', 1);
+  const twoRequest = getRequestWithAccessToken(token ? token : '', 2);
 
   useEffect(() => {
     if (type === 'comment') {
-      const request = getRequestWithAccessToken(token ? token : '', 2);
-      request
+      twoRequest
         .get(`comment/${id}/report/reasons`)
         .then(response => {
           setComment(response.data);
@@ -36,8 +37,7 @@ const ReportListModal: FC<Props> = props => {
           console.log('comment error: ' + error);
         });
     } else {
-      const request = getRequestWithAccessToken(token ? token : '', 1);
-      request
+      oneRequest
         .get(`${type}/${id}/report/reasons`)
         .then(response => {
           setContent(response.data);
@@ -47,6 +47,24 @@ const ReportListModal: FC<Props> = props => {
         });
     }
   }, [id, token]);
+
+  const deleteBtnClickHandler = () => {
+    if (type === 'post') {
+      oneRequest
+        .delete(`/post`)
+        .then(response => {
+          if (response.status === 204) {
+            alert('게시글 삭제을 성공했습니다.');
+            window.location.reload();
+          }
+        })
+        .catch(error => {
+          console.log('post delete error: ' + error);
+        });
+    } else {
+      alert('삭제 불가능합니다.');
+    }
+  };
 
   return (
     <>
@@ -67,7 +85,9 @@ const ReportListModal: FC<Props> = props => {
               return <p key={data.commentId}>{data.content}</p>;
             })}
         </S.ReportList>
-        <S.Button width={650}>삭제하기</S.Button>
+        <S.Button width={650} onClick={deleteBtnClickHandler}>
+          삭제하기
+        </S.Button>
       </S.Modal>
     </>
   );
