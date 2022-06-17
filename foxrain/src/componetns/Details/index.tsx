@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import Header from '../Header/User';
-import { PostWriteModal } from '../Modal';
+import { PostWriteModal, TextWriteModal } from '../Modal';
 import * as S from './style';
 
 const Details = () => {
   const [uploadPost, setUploadPost] = useState<boolean>(false); // 게시글 작성 모달
+  const [uploadPhrase, setUploadPhrase] = useState<boolean>(false); // 글귀 작성 모달
+
   return (
     <>
-      <Header isMain={false} setUploadPost={setUploadPost} />
+      <Header isMain={false} setUploadPost={setUploadPost} setUploadPhrase={setUploadPhrase} />
       <S.Container>
         <S.TextContent>
           <S.Content>
@@ -44,6 +46,7 @@ const Details = () => {
         </S.CommentBox>
       </S.Container>
       {uploadPost && <PostWriteModal showModal={setUploadPost} />}
+      {uploadPhrase && <TextWriteModal showModal={setUploadPhrase} />}
     </>
   );
 };

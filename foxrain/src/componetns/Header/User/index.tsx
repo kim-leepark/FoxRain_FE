@@ -8,10 +8,11 @@ import { UserAuthModal } from '../../Modal';
 interface Props {
   isMain: boolean;
   setUploadPost: Dispatch<SetStateAction<boolean>>;
+  setUploadPhrase: Dispatch<SetStateAction<boolean>>;
 }
 
 const Header: FC<Props> = props => {
-  const { isMain, setUploadPost } = props;
+  const { isMain, setUploadPost, setUploadPhrase } = props;
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const Token = localStorage.getItem('accessToken');
@@ -26,7 +27,7 @@ const Header: FC<Props> = props => {
         <S.Content>
           <div onClick={() => navigate(`/`)}>로고 위치</div>
           <S.NavBox>
-            <S.Font>글귀 작성하기</S.Font>
+            <S.Font onClick={() => setUploadPhrase(true)}>글귀 작성하기</S.Font>
             <S.Font onClick={() => setUploadPost(true)}>게시글 작성하기</S.Font>
             {Token === null ? (
               <S.Font onClick={() => openModal()}>로그인</S.Font>
