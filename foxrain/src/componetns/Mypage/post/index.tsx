@@ -15,7 +15,14 @@ const Post: FC<Props> = props => {
   const postContent = useMemo(() => {
     if (content.length !== 0 && content[0].postId !== null)
       return content.map(data => {
-        <PostContent title={data.title} content={data.content} key={data.postId} isAdmin={false} />;
+        return (
+          <PostContent
+            title={data.title}
+            content={data.content}
+            key={data.postId}
+            isAdmin={false}
+          />
+        );
       });
     else
       return (
