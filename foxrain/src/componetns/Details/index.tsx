@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Header/User';
+import { PostWriteModal } from '../Modal';
 import * as S from './style';
 
 const Details = () => {
+  const [uploadPost, setUploadPost] = useState<boolean>(false); // 게시글 작성 모달
   return (
     <>
-      <Header isMain={false} />
+      <Header isMain={false} setUploadPost={setUploadPost} />
       <S.Container>
         <S.TextContent>
           <S.Content>
@@ -41,6 +43,7 @@ const Details = () => {
           <S.CommentBtn>작성하기</S.CommentBtn>
         </S.CommentBox>
       </S.Container>
+      {uploadPost && <PostWriteModal showModal={setUploadPost} />}
     </>
   );
 };
