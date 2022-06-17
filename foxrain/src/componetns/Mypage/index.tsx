@@ -22,8 +22,8 @@ const Mypage = () => {
     request
       .get(`/user/${userId}?page=1&size=100`)
       .then(response => {
-        setFeed(response.data);
-        setUserName(response.data[0].name);
+        setFeed(response.data.data);
+        setUserName(response.data.data[0].name);
       })
       .catch(error => {
         console.log(error);
@@ -39,7 +39,7 @@ const Mypage = () => {
           {userName}님 <br /> 모두가 잠든 밤에 피는 꽃도 있습니다.
         </p>
       </S.BannerContent>
-      <Post content={feed ? feed : null} />
+      <Post content={feed ? feed : []} />
     </S.Mypage>
   );
 };

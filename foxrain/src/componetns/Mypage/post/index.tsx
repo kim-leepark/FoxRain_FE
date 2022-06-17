@@ -7,13 +7,13 @@ interface Props {
     postId: number;
     title: string;
     content: string;
-  }> | null;
+  }>;
 }
 
 const Post: FC<Props> = props => {
   const { content } = props;
   const postContent = useMemo(() => {
-    if (content)
+    if (content.length !== 0 && content[0].postId !== null)
       return content.map(data => {
         <PostContent title={data.title} content={data.content} key={data.postId} isAdmin={false} />;
       });
