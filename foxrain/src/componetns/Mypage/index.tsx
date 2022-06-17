@@ -4,6 +4,7 @@ import Header from '../Header/User';
 import { banner } from '../../assets/mypage';
 import Post from './post';
 import { getRequestWithAccessToken } from '../../api';
+import { PostWriteModal } from '../Modal';
 
 const Mypage = () => {
   const token = localStorage.getItem('accessToken');
@@ -16,6 +17,7 @@ const Mypage = () => {
     }>
   >();
   const [userName, setUserName] = useState<string>('');
+  const [uploadPost, setUploadPost] = useState<boolean>(false); // 게시글 작성 모달
 
   useEffect(() => {
     const request = getRequestWithAccessToken(token ? token : '', 2);
@@ -32,7 +34,7 @@ const Mypage = () => {
 
   return (
     <S.Mypage>
-      <Header isMain={false} />
+      <Header isMain={false} setUploadPost={setUploadPost} />
       <S.BannerContent>
         <img src={banner} alt='banner' />
         <p>
@@ -40,6 +42,7 @@ const Mypage = () => {
         </p>
       </S.BannerContent>
       <Post content={feed ? feed : []} />
+      {uploadPost && <PostWriteModal showModal={setUploadPost} />}
     </S.Mypage>
   );
 };
