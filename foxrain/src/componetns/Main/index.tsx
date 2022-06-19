@@ -6,7 +6,7 @@ import Banner2 from '../../assets/Main/Banner2.svg';
 import Banner3 from '../../assets/Main/Banner3.svg';
 import Post from './Post';
 import { getRequest } from '../../api';
-import { PostWriteModal, TextWriteModal } from '../Modal';
+import { PostWriteModal, ReportModal, TextWriteModal } from '../Modal';
 
 const Main = () => {
   const [id, setId] = useState(Number); // 글귀 아이디
@@ -24,6 +24,7 @@ const Main = () => {
   >();
   const [uploadPost, setUploadPost] = useState<boolean>(false); // 게시글 작성 모달
   const [uploadPhrase, setUploadPhrase] = useState<boolean>(false); // 글귀 작성 모달
+  const [reportModal, setReportModal] = useState<boolean>(false); // 리스트 모달
 
   useEffect(() => {
     const request = getRequest(1);
@@ -48,12 +49,13 @@ const Main = () => {
       <Header isMain={true} setUploadPost={setUploadPost} setUploadPhrase={setUploadPhrase} />
       <S.Container>
         <S.Banner src={backgroundArr[randomIndex]}></S.Banner>
-        <S.Font>{content}</S.Font>
-        <S.Name>{man}</S.Name>
+        <S.Font onClick={() => setReportModal(true)}>{content}</S.Font>
+        <S.Name onClick={() => setReportModal(true)}>{man}</S.Name>
         <Post feed={feed ? feed : []} />
       </S.Container>
       {uploadPost && <PostWriteModal showModal={setUploadPost} />}
       {uploadPhrase && <TextWriteModal showModal={setUploadPhrase} />}
+      {reportModal && <ReportModal id={id} type={'phrase'} showModal={setReportModal} />}
     </>
   );
 };

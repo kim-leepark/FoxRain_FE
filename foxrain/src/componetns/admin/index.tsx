@@ -46,8 +46,6 @@ const Admin = () => {
         .get('/report/phrases?page=0&size=100')
         .then(response => {
           setPhrase(response.data);
-          setPost([]);
-          setComment([]);
         })
         .catch(error => {
           console.log(error);
@@ -58,8 +56,6 @@ const Admin = () => {
         .get('/report/posts?page=0&size=100')
         .then(response => {
           setPost(response.data);
-          setPhrase([]);
-          setComment([]);
         })
         .catch(error => {
           console.log(error);
@@ -70,8 +66,6 @@ const Admin = () => {
         .get('/report/comments?page=1&size=100')
         .then(response => {
           setComment(response.data);
-          setPhrase([]);
-          setPost([]);
         })
         .catch(error => {
           console.log(error);
@@ -89,12 +83,18 @@ const Admin = () => {
     switch (event.currentTarget.dataset.id) {
       case 'text':
         setIsClick({ text: true, post: false, comment: false });
+        setPost([]);
+        setComment([]);
         break;
       case 'post':
         setIsClick({ text: false, post: true, comment: false });
+        setComment([]);
+        setPhrase([]);
         break;
       case 'comment':
         setIsClick({ text: false, post: false, comment: true });
+        setPhrase([]);
+        setPost([]);
         break;
     }
   };

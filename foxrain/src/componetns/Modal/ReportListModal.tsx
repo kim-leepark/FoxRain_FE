@@ -51,7 +51,7 @@ const ReportListModal: FC<Props> = props => {
   const deleteBtnClickHandler = () => {
     if (type === 'post') {
       oneRequest
-        .delete(`/post`)
+        .delete(`/admin/post/${id}`)
         .then(response => {
           if (response.status === 204) {
             alert('게시글 삭제을 성공했습니다.');
