@@ -35,7 +35,7 @@ export const CommentBox = styled.div`
   max-width: 1280px;
 `;
 
-export const InputBox = styled.div`  
+export const FlexBox = styled.div`  
   display: flex;
 `
 
@@ -61,6 +61,11 @@ export const CommentBtn = styled.div`
   color: #ffffff;
 `;
 
+export const CommtentNull = styled.div`
+  margin-top: 19px;
+  color: #c7c7c7;
+`
+
 export const CommentContentBox = styled.div`
   max-width: 1100px;
   height: fit-content;
@@ -72,3 +77,11 @@ export const CommentContentBox = styled.div`
     max-width: 84.5%;
   }
 `
+
+export const DeclarationBox = styled.div`
+  width: 125px;
+  height: 30px;
+  color: #ffffff;
+  background: #FF0000;
+  border-radius: 10px;
+`;
