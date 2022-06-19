@@ -18,13 +18,15 @@ export const Content = styled.div`
   max-width: 1280px;
   min-height: 400px;
   margin: 0 auto;
+  @media only screen and (max-width: 1440px) {
+    width: 880px;
+  }
 `;
 
 export const Title = styled.p`
   font-weight: 700;
   font-size: 30px;
   color: #000000;
-  margin-bottom: 9px;
 `;
 
 export const Text = styled.div``;
@@ -33,10 +35,15 @@ export const CommentBox = styled.div`
   margin: 0 auto;
   margin-top: 60px;
   max-width: 1280px;
+  @media only screen and (max-width: 1440px) {
+    width: 880px;
+  }
 `;
 
-export const FlexBox = styled.div`  
+export const FlexBox = styled.div`
   display: flex;
+  margin-bottom: 19px;
+  justify-content: space-between;
 `
 
 export const CommentInput = styled.input`
@@ -67,12 +74,11 @@ export const CommtentNull = styled.div`
 `
 
 export const CommentContentBox = styled.div`
-  max-width: 1100px;
+  min-width: 84%;
   height: fit-content;
   padding: 10px;  
   border: 1px solid #c7c7c7;
   border-radius: 10px;
-  margin-top: 19px;
   @media only screen and (max-width: 1440px) {
     max-width: 84.5%;
   }
@@ -82,6 +88,9 @@ export const DeclarationBox = styled.div`
   width: 125px;
   height: 30px;
   color: #ffffff;
+  padding-top: 4px;
+  text-align: center;
+  font-size: 16px;
   background: #FF0000;
   border-radius: 10px;
 `;
