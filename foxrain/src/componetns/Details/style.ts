@@ -16,16 +16,15 @@ export const TextContent = styled.div`
 
 export const Content = styled.div`
   max-width: 1280px;
-  border: 1px solid yellow;
+  min-height: 400px;
   margin: 0 auto;
 `;
 
 export const Title = styled.p`
   font-weight: 700;
   font-size: 30px;
-  line-height: 35px;
-  text-align: center;
   color: #000000;
+  margin-bottom: 9px;
 `;
 
 export const Text = styled.div``;
@@ -33,9 +32,12 @@ export const Text = styled.div``;
 export const CommentBox = styled.div`
   margin: 0 auto;
   margin-top: 60px;
-  display: flex;
   max-width: 1280px;
 `;
+
+export const InputBox = styled.div`  
+  display: flex;
+`
 
 export const CommentInput = styled.input`
   background: #fbfbfb;
@@ -54,6 +56,19 @@ export const CommentBtn = styled.div`
   padding: 17px 10px;
   font-size: 20px;
   margin-left: 50px;
+  cursor: pointer;
   text-align: center;
   color: #ffffff;
 `;
+
+export const CommentContentBox = styled.div`
+  max-width: 1100px;
+  height: fit-content;
+  padding: 10px;  
+  border: 1px solid #c7c7c7;
+  border-radius: 10px;
+  margin-top: 19px;
+  @media only screen and (max-width: 1440px) {
+    max-width: 84.5%;
+  }
+`
