@@ -50,19 +50,23 @@ export const CommentInput = styled.input`
   background: #fbfbfb;
   border: 1px solid #c7c7c7;
   border-radius: 10px;
-  width: 1100px;
+  width: 92%;
   height: 60px;
-  padding-left: 10px;
+  padding: 10px;
+  @media only screen and (max-width: 1440px) {
+    max-width: 90%;
+  }
 `;
 
 export const CommentBtn = styled.div`
   background: #6085c8;
   border-radius: 15px;
-  width: 130px;
+  width: 10%;
   height: 60px;
-  padding: 17px 10px;
-  font-size: 20px;
+  padding-top: 19px;
+  font-size: 16px;
   margin-left: 50px;
+  text-align: center;
   cursor: pointer;
   text-align: center;
   color: #ffffff;
@@ -76,22 +80,22 @@ export const CommtentNull = styled.div`
 export const CommentContentBox = styled.div`
   min-width: 84%;
   height: fit-content;
-  padding: 10px;
+  padding: 10px;  
+  width: 92%;
   border: 1px solid #c7c7c7;
   border-radius: 10px;
   @media only screen and (max-width: 1440px) {
-    max-width: 84.5%;
+    max-width: 90%;
   }
 `;
 
-export const DeclarationBox = styled.div`
-  width: 125px;
-  height: 30px;
+export const DeclarationBox = styled(CommentBtn)`
+  height: 22px;
   color: #ffffff;
-  padding-top: 4px;
+  padding-top: 2px;
   text-align: center;
-  font-size: 16px;
-  background: #ff0000;
+  font-size: 10px;
+  background: #FF0000;
   border-radius: 10px;
   cursor: pointer;
 `;
