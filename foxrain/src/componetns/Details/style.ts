@@ -44,7 +44,7 @@ export const FlexBox = styled.div`
   display: flex;
   margin-bottom: 19px;
   justify-content: space-between;
-`
+`;
 
 export const CommentInput = styled.input`
   background: #fbfbfb;
@@ -71,18 +71,18 @@ export const CommentBtn = styled.div`
 export const CommtentNull = styled.div`
   margin-top: 19px;
   color: #c7c7c7;
-`
+`;
 
 export const CommentContentBox = styled.div`
   min-width: 84%;
   height: fit-content;
-  padding: 10px;  
+  padding: 10px;
   border: 1px solid #c7c7c7;
   border-radius: 10px;
   @media only screen and (max-width: 1440px) {
     max-width: 84.5%;
   }
-`
+`;
 
 export const DeclarationBox = styled.div`
   width: 125px;
@@ -91,6 +91,7 @@ export const DeclarationBox = styled.div`
   padding-top: 4px;
   text-align: center;
   font-size: 16px;
-  background: #FF0000;
+  background: #ff0000;
   border-radius: 10px;
+  cursor: pointer;
 `;
