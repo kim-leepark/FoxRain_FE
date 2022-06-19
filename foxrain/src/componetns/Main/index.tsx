@@ -9,7 +9,6 @@ import { getRequest } from '../../api';
 import { PostWriteModal, ReportModal, TextWriteModal } from '../Modal';
 
 const Main = () => {
-  const token = localStorage.getItem('accessToken');
   const [id, setId] = useState(Number); // 글귀 아이디
   const [content, setContent] = useState('');
   const [man, setMan] = useState('');
@@ -18,7 +17,7 @@ const Main = () => {
   const randomIndex = Math.floor(Math.random() * backgroundArr.length);
   const [feed, setFeed] = useState<
     Array<{
-      postId: number;
+      id: number;
       title: string;
       content: string;
     }>
