@@ -10,7 +10,7 @@ const Router = (): JSX.Element => {
         <Route path='/' element={<Main />} />
         <Route path='/admin' element={<Admin />} />
         <Route path='/mypage' element={<Mypage />} />
-        <Route path='/details/' element={<Details />} />
+        <Route path='/details/:id' element={<Details />} />
       </Routes>
     </BrowserRouter>
   );
