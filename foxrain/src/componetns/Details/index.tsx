@@ -36,7 +36,6 @@ const Details = () => {
     const requset = getRequestWithAccessToken(token ? token : '', 2);
     requset.get(`/comment/` + Number(id) + `?page=1&size=100`).then(response => {
       setComment(response.data.data);
-      console.log(response.data);
     }).catch(error => {
       setCommnetErrorStatus(true);
       console.log(error);
@@ -46,7 +45,7 @@ const Details = () => {
   const onClickWriteComment = () => {
     console.log(content);
     const requset = getRequestWithAccessToken(token ? token : '', 2);
-    requset.post(`/comment/` + Number(id), content).then(response => {
+    requset.post(`/comment/` + Number(id), {content}).then(response => {
       alert("댓글 작성이 완료되었습니다.");
     }).catch(error => {
       setCommnetErrorStatus(true);
@@ -60,7 +59,10 @@ const Details = () => {
       <S.Container>
         <S.TextContent>
           <S.Content>
-            <S.Title>{title}</S.Title>
+            <S.FlexBox>
+              <S.Title>{title}</S.Title>
+              <S.DeclarationBox>신고하기</S.DeclarationBox>
+            </S.FlexBox>
             <S.Text>
               {postContent}
             </S.Text>
@@ -78,9 +80,10 @@ const Details = () => {
           }
           {comment && comment.map((item, index) => {
             return (
-              <>
+              <S.FlexBox>
                 <S.CommentContentBox key={index}>{item.content}</S.CommentContentBox>
-              </>
+                <S.DeclarationBox>신고하기</S.DeclarationBox>
+              </S.FlexBox>
             )
           })}
         </S.CommentBox>
