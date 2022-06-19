@@ -97,4 +97,5 @@ export const DeclarationBox = styled(CommentBtn)`
   font-size: 10px;
   background: #FF0000;
   border-radius: 10px;
+  cursor: pointer;
 `;
