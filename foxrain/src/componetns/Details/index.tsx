@@ -10,11 +10,12 @@ const Details = () => {
   const [uploadPhrase, setUploadPhrase] = useState<boolean>(false); // 글귀 작성 모달
   const [reportModal, setReportModal] = useState<boolean>(false); // 신고 모달
   const [reportType, setReportType] = useState<string>(''); // 게시글 신고인지 댓글 신고인지
-  const [reportId, setReportId] = useState<number>(0);
+  const [reportId, setReportId] = useState<number>(0); // 신고 id
   const [title, setTitle] = useState('');
   const [postContent, setPostContent] = useState('');
   const [comment, setComment] = useState<
     Array<{
+      id: number;
       content: string;
       reportedComment: Boolean;
       createdAt: string;
@@ -104,7 +105,7 @@ const Details = () => {
                     onClick={() => {
                       setReportModal(true);
                       setReportType('comment');
-                      setReportId(1);
+                      setReportId(item.id);
                     }}
                   >
                     신고하기
