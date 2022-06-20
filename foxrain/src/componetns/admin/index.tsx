@@ -65,7 +65,7 @@ const Admin = () => {
       request
         .get('/report/comments?page=1&size=100')
         .then(response => {
-          setComment(response.data);
+          setComment(response.data.data);
         })
         .catch(error => {
           console.log(error);

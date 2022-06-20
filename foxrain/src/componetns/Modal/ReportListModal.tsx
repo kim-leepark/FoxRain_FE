@@ -31,7 +31,7 @@ const ReportListModal: FC<Props> = props => {
       twoRequest
         .get(`comment/${id}/report/reasons`)
         .then(response => {
-          setComment(response.data);
+          setComment(response.data.data);
         })
         .catch(error => {
           console.log('comment error: ' + error);
