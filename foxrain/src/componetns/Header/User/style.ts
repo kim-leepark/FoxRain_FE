@@ -25,6 +25,9 @@ export const Content = styled.div`
   @media only screen and (max-width: 1440px) {
     min-width: 880px;
   }
+  img {
+    cursor: pointer;
+  }
 `;
 
 export const NavBox = styled.div`
