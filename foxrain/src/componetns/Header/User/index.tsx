@@ -2,7 +2,8 @@ import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 import * as S from './style';
 import WProfile from '../../../assets/Header/WProfile.svg';
 import BProfile from '../../../assets/Header/BProfile.svg';
-import Logo from '../../../assets/Header/Logo.svg';
+import MLogo from '../../../assets/Header/MLogo.svg';
+import DLogo from '../../../assets/Header/DLogo.svg';
 import { useNavigate } from 'react-router';
 import { UserAuthModal } from '../../Modal';
 
@@ -27,7 +28,7 @@ const Header: FC<Props> = props => {
       <S.Container position={isMain}>
         <S.Content>
           <div onClick={() => navigate(`/`)}>
-            <img src={Logo} />
+            <img src={isMain ? MLogo : DLogo} />
           </div>
           <S.NavBox>
             <S.Font onClick={() => setUploadPhrase(true)}>글귀 작성하기</S.Font>
