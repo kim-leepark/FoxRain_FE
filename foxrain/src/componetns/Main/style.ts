@@ -32,9 +32,9 @@ export const Font = styled.p`
 `;
 
 export const Name = styled(Font)`
-  top: 45%;
-  left: 40%;
-  transform: translate(600%, -50%);
+  top: 420px;
+  left: 1500px;
+  transform: translate(1%, -50%);
   font-size: 30px;
   line-height: 35px;
   cursor: pointer;
